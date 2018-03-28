@@ -5,6 +5,10 @@ MAINTAINER Christopher Wright (wrich04@ca.com)
 
 USER root
 
+RUN apt-get update -qqy \
+  && apt-get -qqy install \
+    locales
+
 # Upgrade packages on image
 # Preparations for sshd
 RUN locale-gen en_US.UTF-8 &&\
