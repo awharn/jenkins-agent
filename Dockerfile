@@ -1,5 +1,5 @@
 #Docker file for jenkins slave image
-FROM ubuntu:16.04
+FROM ubuntu:xenial
 
 MAINTAINER Christopher Wright (wrich04@ca.com) 
 
