@@ -34,20 +34,6 @@ RUN apt-get -q update &&\
     DEBIAN_FRONTEND="noninteractive" apt-get -q install -y -o Dpkg::Options::="--force-confnew" --no-install-recommends openjdk-8-jre-headless &&\
     apt-get -q clean -y && rm -rf /var/lib/apt/lists/* && rm -f /var/cache/apt/*.bin
 
-
-# Install minimum required software
-RUN echo "deb http://archive.ubuntu.com/ubuntu precise main universe" >> /etc/apt/sources.list
-RUN apt-get update
-
-RUN apt-get -y install git
-RUN apt-get -y install curl
-
-# Download and setup the APT repository add the PGP key to the system.s APT keychain,
-RUN curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
-
-RUN apt-get -y install nodejs
-RUN npm install npm --global
-
 RUN sudo useradd jenkins --shell /bin/bash --create-home \
   && sudo usermod -a -G sudo jenkins \
   && echo 'ALL ALL = (ALL) NOPASSWD: ALL' >> /etc/sudoers \
