@@ -7,7 +7,8 @@ USER root
 
 RUN apt-get update -qqy \
   && apt-get -qqy install \
-    locales
+    locales \
+    sudo
 
 # Upgrade packages on image
 # Preparations for sshd
@@ -19,6 +20,7 @@ RUN locale-gen en_US.UTF-8 &&\
     apt-get -q clean -y && rm -rf /var/lib/apt/lists/* && rm -f /var/cache/apt/*.bin &&\
     sed -i 's|session    required     pam_loginuid.so|session    optional     pam_loginuid.so|g' /etc/pam.d/sshd &&\
     mkdir -p /var/run/sshd
+
 
 ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US:en
