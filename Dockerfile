@@ -1,7 +1,5 @@
-#Docker file for jenkins slave image
+#Docker file for jenkins agent image
 FROM ubuntu:xenial
-
-MAINTAINER Christopher Wright (wrich04@ca.com) 
 
 USER root
 
