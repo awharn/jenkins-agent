@@ -3,7 +3,7 @@
 This an image that can be used as an agent within a Jenkins pipeline build. The image uses an Ubuntu Xenial image as its base and creates a user `jenkins` that has the ability to perform sudo operations within the image.
 
 ## Legal Stuff
-This image is based upon the evarga/jenkins-slave (evarga/docker-images@da691f8f8481a11ad019c47772732acad88759b1) which is licensed under the MIT license.
+This image is based upon the [evarga/jenkins-slave](https://github.com/evarga/docker-images/tree/da691f8f8481a11ad019c47772732acad88759b1) which is licensed under the MIT license.
 
 Below are the additions to the above docker image:
 
