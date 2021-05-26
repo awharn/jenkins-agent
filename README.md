@@ -1,14 +1,14 @@
 # jenkins-agent
 
-This an image that can be used as an agent within a Jenkins pipeline build. The image uses an Ubuntu Xenial image as its base and creates a user `jenkins` that has the ability to perform sudo operations within the image.
+This an image that can be used as an agent within a Jenkins pipeline build. The image uses an Ubuntu Fossa image as its base and creates a user `jenkins` that has the ability to perform sudo operations within the image.
 
 ## Legal Stuff
-This image is based upon the [evarga/jenkins-slave](https://github.com/evarga/docker-images/tree/da691f8f8481a11ad019c47772732acad88759b1) which is licensed under the MIT license.
+This image is based upon the [AHumanFromCA/jenkins-agent](https://github.com/AHumanFromCA/jenkins-agent) which is licensed under the MIT license.
 
 Below are the additions to the above docker image:
 
-- Uses Ubuntu Xenial (16.04) instead of Ubuntu Trusty (14.04) as the base
-- The `jenkins` user is no longer has to pipe `jenkins` as the password to use sudo within the image.
+- Uses Ubuntu Fossa (20.04) instead of Ubuntu Xenial (16.04) as the base
+- Uses OpenJDK 11 instead of OpenJDK 8
 
 ### License (evarga/docker-images)
 
