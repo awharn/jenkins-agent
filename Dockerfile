@@ -6,7 +6,8 @@ USER root
 RUN apt-get update -qqy \
   && apt-get -qqy install \
     locales \
-    sudo
+    sudo \
+    wget
 
 # Upgrade packages on image
 # Preparations for sshd
