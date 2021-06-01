@@ -38,6 +38,8 @@ RUN sudo useradd jenkins --shell /bin/bash --create-home \
   && echo 'ALL ALL = (ALL) NOPASSWD: ALL' >> /etc/sudoers \
   && echo 'jenkins:jenkins' | chpasswd
 
+COPY openssl.cnf /etc/ssl/openssl.cnf
+
 # Standard SSH port
 EXPOSE 22
 
