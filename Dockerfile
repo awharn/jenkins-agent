@@ -7,7 +7,8 @@ RUN apt-get update -qqy \
   && apt-get -qqy install \
     locales \
     sudo \
-    wget
+    wget \
+    unzip
 
 # Upgrade packages on image
 # Preparations for sshd
