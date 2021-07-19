@@ -12,8 +12,6 @@ RUN apt-get update -qqy \
     zip \
     git \
     curl \
-    openjdk-11-jdk \
-    openjdk-8-jdk \
     sshpass
 
 # Upgrade packages on image
@@ -36,7 +34,7 @@ RUN apt-get -q update &&\
     DEBIAN_FRONTEND="noninteractive" apt-get -q install -y -o Dpkg::Options::="--force-confnew" --no-install-recommends software-properties-common &&\
     add-apt-repository -y ppa:openjdk-r/ppa &&\
     apt-get -q update &&\
-    DEBIAN_FRONTEND="noninteractive" apt-get -q install -y -o Dpkg::Options::="--force-confnew" --no-install-recommends openjdk-11-jre-headless openjdk-8-jre-headless
+    DEBIAN_FRONTEND="noninteractive" apt-get -q install -y -o Dpkg::Options::="--force-confnew" --no-install-recommends openjdk-11-jre-headless openjdk-8-jre-headless openjdk-11-jdk openjdk-8-jdk
 
 RUN sudo useradd jenkins --shell /bin/bash --create-home \
   && sudo usermod -a -G sudo jenkins \
