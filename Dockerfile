@@ -8,7 +8,13 @@ RUN apt-get update -qqy \
     locales \
     sudo \
     wget \
-    unzip
+    unzip \
+    zip \
+    git \
+    curl \
+    openjdk-11-jdk \
+    openjdk-8-jdk \
+    sshpass
 
 # Upgrade packages on image
 # Preparations for sshd
@@ -17,7 +23,6 @@ RUN locale-gen en_US.UTF-8 &&\
     DEBIAN_FRONTEND="noninteractive" apt-get -q upgrade -y -o Dpkg::Options::="--force-confnew" --no-install-recommends &&\
     DEBIAN_FRONTEND="noninteractive" apt-get -q install -y -o Dpkg::Options::="--force-confnew" --no-install-recommends openssh-server &&\
     apt-get -q autoremove &&\
-    apt-get -q clean -y && rm -rf /var/lib/apt/lists/* && rm -f /var/cache/apt/*.bin &&\
     sed -i 's|session    required     pam_loginuid.so|session    optional     pam_loginuid.so|g' /etc/pam.d/sshd &&\
     mkdir -p /var/run/sshd
 
@@ -31,8 +36,7 @@ RUN apt-get -q update &&\
     DEBIAN_FRONTEND="noninteractive" apt-get -q install -y -o Dpkg::Options::="--force-confnew" --no-install-recommends software-properties-common &&\
     add-apt-repository -y ppa:openjdk-r/ppa &&\
     apt-get -q update &&\
-    DEBIAN_FRONTEND="noninteractive" apt-get -q install -y -o Dpkg::Options::="--force-confnew" --no-install-recommends openjdk-11-jre-headless openjdk-8-jre-headless &&\
-    apt-get -q clean -y && rm -rf /var/lib/apt/lists/* && rm -f /var/cache/apt/*.bin
+    DEBIAN_FRONTEND="noninteractive" apt-get -q install -y -o Dpkg::Options::="--force-confnew" --no-install-recommends openjdk-11-jre-headless openjdk-8-jre-headless
 
 RUN sudo useradd jenkins --shell /bin/bash --create-home \
   && sudo usermod -a -G sudo jenkins \
@@ -40,6 +44,8 @@ RUN sudo useradd jenkins --shell /bin/bash --create-home \
   && echo 'jenkins:jenkins' | chpasswd
 
 COPY openssl.cnf /etc/ssl/openssl.cnf
+
+RUN apt-get -q autoremove && apt-get -q clean -y && rm -rf /var/lib/apt/lists/* && rm -f /var/cache/apt/*.bin
 
 # Standard SSH port
 EXPOSE 22
