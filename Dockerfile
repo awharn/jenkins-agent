@@ -12,7 +12,8 @@ RUN apt-get update -qqy \
     zip \
     git \
     curl \
-    sshpass
+    sshpass \
+    libxss1
 
 # Upgrade packages on image
 # Preparations for sshd
