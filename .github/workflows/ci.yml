@@ -36,3 +36,10 @@ jobs:
       
       - name: Image Digest
         run:  echo ${{ steps.build.outputs.digest }}
+      
+      - name: Update Downstream
+        uses: benc-uk/workflow-dispatch@v1
+        with: 
+          workflow: ci
+          repo:     awharn/jenkins-nvm-agent
+          token:    ${{ secrets.PAT }}
