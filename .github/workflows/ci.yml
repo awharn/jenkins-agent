@@ -31,8 +31,8 @@ jobs:
         with:
           push: true
           tags: |
-            awharn/jenkins-agent@latest
-            ghcr.io/awharn/jenkins-agent@latest
+            awharn/jenkins-agent:latest
+            ghcr.io/awharn/jenkins-agent:latest
       
       - name: Image Digest
         run:  echo ${{ steps.build.outputs.digest }}
