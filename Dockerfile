@@ -13,7 +13,9 @@ RUN apt-get update -qqy \
     git \
     curl \
     sshpass \
-    libxss1
+    libxss1 \
+    vim \
+    nano
 
 # Upgrade packages on image
 # Preparations for sshd
