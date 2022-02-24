@@ -40,20 +40,20 @@ jobs:
       - name: Update Downstream (Node 12)
         uses: benc-uk/workflow-dispatch@v1
         with: 
-          workflow: latest-v12
+          workflow: Node 12
           repo:     awharn/jenkins-nvm-agent
           token:    ${{ secrets.PAT }}
       
       - name: Update Downstream (Node 14)
         uses: benc-uk/workflow-dispatch@v1
         with: 
-          workflow: v14
+          workflow: Node 14
           repo:     awharn/jenkins-nvm-agent
           token:    ${{ secrets.PAT }}
       
       - name: Update Downstream (Node 16)
         uses: benc-uk/workflow-dispatch@v1
         with: 
-          workflow: v16
+          workflow: Node 16
           repo:     awharn/jenkins-nvm-agent
           token:    ${{ secrets.PAT }}
